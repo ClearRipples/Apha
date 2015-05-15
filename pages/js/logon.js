@@ -21,7 +21,22 @@ var Logon = {
 	init: function () {
 		this.dbListScroller = new iScroll(dbList);
 
-		$s.cache.setItem('dbList', dblist);
+		$s.cache.setItem('dblist', dblist_data);
+		$s.cache.setItem('categorys', category);
+		var login_info = {
+			"AcctID": 2,
+			"UserName": "administrator",
+			"Password": ''
+		};
+		//将数据base64后，保存在cookie，默认过期时间为 30 天
+       	var date = new Date();
+       	var expireDays = 30;
+       	date.setTime(date.getTime() + expireDays *24 *3600*1000);
+       	var _info = "#~type=-1&AcctID=" + login_info.AcctID+ '&UserName=' +login_info.UserName + '&Password=' + login_info.Password;
+
+       	setCookie("_info",_info, date);
+
+
 
 		//做出判断如果系统已经进行初始化，则进行请求获取帐套信息，否则提示用户进行初始化
 		if($s.cache.getItem("isInit")){
