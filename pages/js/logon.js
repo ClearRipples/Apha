@@ -21,6 +21,8 @@ var Logon = {
 	init: function () {
 		this.dbListScroller = new iScroll(dbList);
 
+		$s.cache.setItem('dbList', dblist);
+
 		//做出判断如果系统已经进行初始化，则进行请求获取帐套信息，否则提示用户进行初始化
 		if($s.cache.getItem("isInit")){
 			if ($s.cache.getItem('dblist') && !navigator.onLine) {
