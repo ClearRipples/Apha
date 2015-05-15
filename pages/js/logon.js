@@ -40,7 +40,8 @@ var Logon = {
 
 		//做出判断如果系统已经进行初始化，则进行请求获取帐套信息，否则提示用户进行初始化
 		if($s.cache.getItem("isInit")){
-			if ($s.cache.getItem('dblist') && !navigator.onLine) {
+			if ($s.cache.getItem('dblist')) {
+			//if ($s.cache.getItem('dblist') && !navigator.onLine) {
 	            //初始化登陆页面，将帐套列表添加到dom中
 	            setTimeout(function () {
 	            	Logon.removeFlash(function () {
@@ -190,43 +191,67 @@ var Logon = {
 	sigin: function(login_info){
 		$s.removeClass(loadingLayer, "none");
 
-		ActiveRequest = $s.post({
-			//sync: false,
-			url: serverService,
-			error: function(xhr){
-				$s.addClass(loadingLayer, "none");
-				ActiveRequest = null;
-				showTip(xhr.Message);
-			},
-			success: function(data){
-				//保存用户的数据
-				Logon.saveUserSetting();
+		// ActiveRequest = $s.post({
+		// 	//sync: false,
+		// 	url: serverService,
+		// 	error: function(xhr){
+		// 		$s.addClass(loadingLayer, "none");
+		// 		ActiveRequest = null;
+		// 		showTip(xhr.Message);
+		// 	},
+		// 	success: function(data){
+		// 		//保存用户的数据
+		// 		Logon.saveUserSetting();
 
-				$s.cache.setItem("sid",login_info.UserName);
-				$s.cache.setItem("nickname", login_info.UserName);
-				//将该用户的数据进行保存到 localstorage 中  
-				$s.cache.setItem('categorys', data.Data);
-				ActiveRequest = null;
-				$s.addClass(loadingLayer, "none");
+		// 		$s.cache.setItem("sid",login_info.UserName);
+		// 		$s.cache.setItem("nickname", login_info.UserName);
+		// 		//将该用户的数据进行保存到 localstorage 中  
+		// 		$s.cache.setItem('categorys', data.Data);
+		// 		ActiveRequest = null;
+		// 		$s.addClass(loadingLayer, "none");
 
 
 
-		       	//将数据base64后，保存在cookie，默认过期时间为 30 天
-		       	var date = new Date();
-		       	var expireDays = 30;
-		       	date.setTime(date.getTime() + expireDays *24 *3600*1000);
-		       	var _info = "#~type=-1&AcctID=" + login_info.AcctID+ '&UserName=' +login_info.UserName + '&Password=' + login_info.Password;
+		//        	//将数据base64后，保存在cookie，默认过期时间为 30 天
+		//        	var date = new Date();
+		//        	var expireDays = 30;
+		//        	date.setTime(date.getTime() + expireDays *24 *3600*1000);
+		//        	var _info = "#~type=-1&AcctID=" + login_info.AcctID+ '&UserName=' +login_info.UserName + '&Password=' + login_info.Password;
 
-		       	setCookie("_info",_info, date);
+		//        	setCookie("_info",_info, date);
 
-            	//进行页面跳转
-            	location.hash = "#~type=0";
-        	},
-        	params: {
-        		"type": "LOGIN",
-        		"data": login_info
-        	}
-    	});
+  //           	//进行页面跳转
+  //           	location.hash = "#~type=0";
+  //       	},
+  //       	params: {
+  //       		"type": "LOGIN",
+  //       		"data": login_info
+  //       	}
+  //   	});
+
+
+			//保存用户的数据
+		Logon.saveUserSetting();
+
+		$s.cache.setItem("sid",login_info.UserName);
+		$s.cache.setItem("nickname", login_info.UserName);
+		//将该用户的数据进行保存到 localstorage 中  
+		$s.cache.setItem('categorys', category);
+		ActiveRequest = null;
+		$s.addClass(loadingLayer, "none");
+
+
+
+       	//将数据base64后，保存在cookie，默认过期时间为 30 天
+       	var date = new Date();
+       	var expireDays = 30;
+       	date.setTime(date.getTime() + expireDays *24 *3600*1000);
+       	var _info = "#~type=-1&AcctID=" + login_info.AcctID+ '&UserName=' +login_info.UserName + '&Password=' + login_info.Password;
+
+       	setCookie("_info",_info, date);
+
+    	//进行页面跳转
+    	location.hash = "#~type=0";
 	},
 
 	scanSigin: function(){
