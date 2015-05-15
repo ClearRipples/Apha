@@ -1,0 +1,324 @@
+html, body, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+
+.pda-detail-wraper {
+    position: absolute;
+    top: 0px;
+    z-index: 10;
+    height: 150px;
+    width: 100%;
+    background-color: #eeeeee;
+    border-bottom: 1px solid #eee;
+}
+
+.pda-detail-div {
+    height: 140px;
+    /*margin-top: 5px;*/
+    background-color: white;
+    /*margin-left: 5px;
+    margin-right: 5px;*/
+    overflow: hidden;
+    /*border: 1px solid gray;*/
+    /*BUG£º2015-04-13 hongbo_liang ÐÞ¸Ä±ß¿ò*/
+    border:none;
+    border-bottom: 1px solid gray;
+}
+
+.pda-detail-ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+    .pda-detail-ul li {
+        padding: 2px 0px 2px 0px;
+        margin: 0;
+    }
+
+.pda-inner-wraper {
+    width: 100%;
+    position: relative;
+    top: 44px;
+}
+
+.pda-ckcw-wraper {
+    width: 100%;
+    height: 40px;
+    top: 150px;
+    background-color: #eee;
+    position: absolute;
+    display: table;
+}
+
+.pad-col {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    position: relative;
+}
+
+.pda-ckcw-label {
+    margin-left: 10px;
+}
+
+.pda-ckcw-val {
+    padding-bottom: 2px;
+    border-bottom: 1px dashed gray;
+    width: 20%;
+    margin-left: 5px;
+    display: inline-block;
+    height: 20px;
+}
+
+.pda-tabheder-wraper {
+    width: 100%;
+    height: 33px;
+    top: 190px;
+    background-color: white;
+    position: absolute;
+}
+
+.pda-list-wraper {
+    top: 224px;
+    bottom: 40px;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+}
+
+.pda-btn-wraper {
+    height: 40px;
+    bottom: 0px;
+    display: table;
+    position: absolute;
+    width: 100%;
+}
+
+.pda-list-table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    background-color: white;
+    position: relative;
+    font-size: 13px;
+}
+
+    .pda-list-table tr {
+    }
+
+        .pda-list-table tr td input[type='checkbox'] {
+            width: 20px;
+            height: 20px;
+        }
+
+.pda-Mod-dialog-header {
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.pda-list-table tr td {
+    border-left: 1px solid gray;
+    padding: 3px 0px 3px 0px;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: table-cell;
+}
+
+.pad-selected {
+    background-color: lightblue;
+}
+
+.pda-sumit-btn, .pda-delete-btn {
+    width: 70%;
+    margin-left: 15%;
+    display: block;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.pda-close-detail {
+    position: absolute;
+    top: 210px;
+    right: 20px;
+    display: block;
+    width: 40px;
+    display: none;
+    height: 40px;
+}
+
+    .pda-close-detail:before {
+        margin-top: 0px !important;
+    }
+
+.pda-down-icon:before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin-top: -12px;
+    border-bottom: 3px solid #72adff;
+    border-right: 3px solid #72adff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    left: 10px;
+}
+
+.pda-close-detail:before, .pda-up-icon:before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin-top: -2px;
+    border-top: 3px solid #72adff;
+    border-right: 3px solid #72adff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    left: 15px;
+}
+
+.pda-detail-label {
+    margin-left: 4px;
+    width: 80px;
+    display: inline-block;
+    font-size: 14px;
+    color: #878787;
+}
+
+.pda-detail-value {
+    margin-left: 4px;
+    display: inline-block;
+    font-size: 13px;
+    color: #878787;
+}
+
+    .pda-detail-value input[type='text'] {
+        border: none;
+        border-bottom: 1px solid #72adff;
+    }
+
+.pda-ckcw-selector-wraper {
+    position: absolute;
+    left:101%;
+    width: 100%;
+    top: 0px;
+    z-index: 20;
+    background-color: white;
+}
+
+.pda-ckcw-header {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 10;
+    background-color: white;
+}
+
+.pda-ckcw-table {
+    position: relative;
+    table-layout: fixed;
+    font-size: 12px;
+    margin-top: 35px;
+    width: 100%;
+}
+
+.pda-ckcw-headertable {
+    position: relative;
+    table-layout: fixed;
+    font-size: 12px;
+    width: 100%;
+}
+
+    .pda-ckcw-headertable tr {
+        height: 32px;
+    }
+
+        .pda-ckcw-headertable tr td {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+.pda-ckcw-table tr td {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: table-cell;
+}
+
+.pda-ckcw-headertable tr:first-child td:first-child, .pda-ckcw-table tr:first-child td:first-child {
+    width: 15%;
+}
+
+.pda-Mod-cover, .pda-del-cover {
+    position: fixed;
+    z-index: 111;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+    left:101%;
+}
+
+.pda-Mod-dialog, .pda-del-dialog {
+    position: absolute;
+    top: 15%;
+    width: 96%;
+    margin-left: 2%;
+    background-color: white;
+}
+
+.pda-Mod-dialog-footer, .pda-del-dialog-footer {
+    position: relative;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+
+.pda-Mod-cancelbtn, .pda-Mod-okbtn, .pda-del-cancelbtn, .pda-del-okbtn {
+    position: relative;
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.pda-Mod-cancelbtn, .pda-del-cancelbtn {
+    border-right: 1px solid #ccc;
+}
+
+.pda-Mod-input {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    line-height: 30px;
+    border: none;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+.pda-Mod-dialog-content, .pda-del-dialog-content {
+    padding: 20px;
+}

@@ -1,0 +1,88 @@
+﻿.bill_entrance > input[type="text"] {
+    display: table;
+    margin: 10px auto;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    line-height: 30px;
+    width: 100%;
+    outline: none;
+}
+
+.entry_list {
+    line-height: 44px;
+}
+    .entry_item {
+        padding: 5px;
+        /*border-top: 1px solid #b9b9b9;*/
+        border-bottom: 1px solid #b9b9b9;
+        position:relative;
+        /*margin: 0 5px 10px 5px;*/
+        margin: 0 0 10px 0;
+        /*margin-bottom: 10px;*/
+        /*background: #fff;*/
+        box-shadow: 0 0 17px rgba(0,0,0,.21);
+    }
+        .entry_item > strong {
+            text-align: left;
+        }
+
+        .entry_item > span {
+            position: absolute;
+            right: 70px;
+            top: 5px;
+        }
+        .entry_item span:last-child {
+            float:right;
+            position: absolute;
+            right:10px;
+        }
+
+        .entry_item .checkbox {
+            background-position: 30px -104px;
+            bottom: 0;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            text-indent: -9999em;
+            top: 0;
+            width: 70px;
+            height: 70px;
+        }
+
+            .entry_item .checkbox:active,
+            .entry_item .checkbox.active {
+                background-color: none;
+                background-position: -31px -104px;
+            }
+        .entry_item p {
+            position:relative;
+            overflow:hidden;
+        }
+        .entry_item p > span:first-child {
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 40%;
+        }
+            .entry_item p input:last-child {
+               margin-left: 40%;
+               width: 58%;
+            }
+        .entry_item span > input[type="text"] {
+            width: 100px;
+            text-align:right;
+            padding: 0 2px 0 2px;
+        }
+
+        .entry_item input {
+           line-height:20px;
+           padding-left: 2px;
+           margin:2px 2px 2px 5px;
+           box-sizing: border-box;
+           background: transparent;
+           border:none;
+           border-bottom: 1px solid #1E90FF;
+           outline: none;
+        }

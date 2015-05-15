@@ -1,0 +1,588 @@
+﻿.container {
+    position: absolute;
+    top: 44px;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+}
+
+    .container input[type=checkbox] {
+        position: relative;
+        opacity: 1;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        margin: 2px 0 0 0;
+    }
+
+.intro {
+    position: absolute;
+    bottom: 40px;
+    z-index: 10;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    /*background: #2a2e39;*/
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+    .intro .component {
+        position: absolute;
+        top: 0px;
+        bottom: 40px;
+    }
+/*.container_open .intro {
+	-webkit-transform: translate3d(0, -100%, 0) translate3d(0, 250px, 0);
+	transform: translate3d(0, -100%, 0) translate3d(0, 250px, 0);
+}*/
+/*向上展开*/
+.container_open .intro {
+    -webkit-transform: translate3d(0, -100%, 0) translate3d(0, 50%, 0);
+    transform: translate3d(0, -100%, 0) translate3d(0, 50%, 0);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+}
+
+/* Fullscreen image */
+.intro_image {
+    position: absolute;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 120%;
+    width: auto;
+    height: auto;
+    opacity: 0.8;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 0.6s, opacity 0.6s;
+    transition: transform 0.6s, opacity 0.6s;
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.container_open .intro_image {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20%, 0);
+    transform: translate3d(0, 20%, 0);
+}
+
+/* Intro content */
+.intro_content {
+    position: absolute;
+    bottom: 0;
+    /*padding: 0.8em;*/
+    padding: 0;
+    width: 100%;
+    font-size: 1.15em;
+    background: #fff;
+}
+
+.intro_title {
+    margin: 0 0 20px;
+    font-weight: 900;
+    font-size: 4em;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.intro_subtitle {
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.intro_description {
+    position: absolute;
+    float: left;
+    right: 50px;
+    margin: 0 auto 0 0;
+    line-height: 1.2;
+}
+
+    .intro_description span {
+        display: inline-block;
+        min-width: 130px;
+    }
+
+        .intro_description span a.button {
+            border-bottom: 1px solid #2a2e39;
+            color: gray;
+            min-width: 100px;
+        }
+
+/* Trigger button with SVG */
+.trigger {
+    position: relative;
+    overflow: hidden;
+    margin: 0 0 0 5px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.intro .trigger {
+    float: right;
+}
+
+/* Hide the text */
+.trigger span {
+    position: absolute;
+    top: 100%;
+}
+
+.icon rect,
+.icon line {
+    stroke: #2a2e39;
+    fill: none;
+    stroke-width: 2px;
+}
+
+.icon {
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Hide grid and show cross when opening */
+.icon_cross,
+.trigger_active .icon_grid {
+    opacity: 0;
+    -webkit-transform: scale3d(0.5, 0.5, 1);
+    transform: scale3d(0.5, 0.5, 1);
+}
+
+.trigger_active .icon_cross {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+}
+
+/* Main content */
+.items_wrap {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+}
+
+    .items_wrap::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /*background: #2a2e39;*/
+        content: '';
+        opacity: 1;
+        -webkit-transition: opacity 0.6s;
+        transition: opacity 0.6s;
+        -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+        pointer-events: none;
+    }
+
+    .items_wrap .component {
+        position: absolute;
+        top: 0;
+        height: 100%;
+    }
+
+.container_open .items_wrap::after {
+    opacity: 0;
+}
+
+.hide_wrap {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    bottom: -40px;
+    height: 100%;
+    background: #fff;
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+    .hide_wrap .trigger {
+        position: relative;
+        float: right;
+        z-index: 12;
+    }
+
+.container_popup .hide_wrap {
+    z-index: 12;
+   -webkit-transform: translate3d(0, -100%, 0) translate3d(0, 0, 0);
+    transform: translate3d(0, -100%, 0) translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;    
+}
+
+.hide_wrap_child {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    right: 0;
+    z-index: 13;
+    bottom: -40px;
+    width: 100%;
+    background: #fff;
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+
+.container_popup_child .hide_wrap_child {
+    z-index: 13;
+   -webkit-transform: translate3d(-100%,0,0) translate3d(0, 0, 0);
+    transform: translate3d(-100%,0,0) translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;    
+}
+
+
+
+
+
+/* Media Queries */
+
+
+@media screen and (max-width: 1000px) {
+    .intro_content {
+        font-size: 0.85em;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .intro_title {
+        font-size: 2em;
+    }
+}
+
+
+.container footer {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    z-index: 11;
+}
+
+.bg_1 {
+    background: #ECEFF1;
+    color: #37474f;
+}
+
+.bg_2 {
+    background: #7986cb;
+    color: #ECEFF1;
+}
+
+.bg_3 {
+    background: #37474f;
+    color: #fff;
+}
+
+.button {
+    float: left;
+    min-width: 150px;
+    max-width: 50px;
+    display: block;
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    background: none;
+    color: inherit;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    -webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+    .button:focus {
+        outline: none;
+    }
+
+    .button > span {
+        vertical-align: middle;
+    }
+
+.bg_1 .button {
+    color: #37474f;
+    border-color: #37474f;
+}
+
+.bg_2 .button {
+    color: #ECEFF1;
+    border-color: #ECEFF1;
+}
+
+.bg_3 .button {
+    color: #fff;
+    border-color: #fff;
+}
+
+
+.button_size_s {
+    font-size: 14px;
+}
+
+.button_size_m {
+    font-size: 16px;
+}
+
+.button_size_l {
+    font-size: 18px;
+}
+
+
+.button_text_upper {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.button_text_thin {
+    font-weight: 300;
+}
+
+.button_text_medium {
+    font-weight: 500;
+}
+
+.button_text_thick {
+    font-weight: 600;
+}
+
+.button_round_s {
+    border-radius: 5px;
+}
+
+.button_round_m {
+    border-radius: 15px;
+}
+
+.button_round_l {
+    border-radius: 40px;
+}
+
+
+.button_border_thin {
+    border: 1px solid;
+}
+
+.button_border_medium {
+    border: 2px solid;
+}
+
+.button_border_thick {
+    border: 3px solid;
+}
+
+
+.button_ujarak {
+    /*-webkit-transition: border-color 0.4s, color 0.4s;
+    transition: border-color 0.4s, color 0.4s;*/
+}
+
+    .button_ujarak::before {
+/*        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #37474f;
+        z-index: -10;
+        opacity: 0;*/
+        /*-webkit-transform: scale3d(0.7, 1, 1);
+        transform: scale3d(0.7, 1, 1);
+        -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+        transition: transform 0.4s, opacity 0.4s;
+        -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);*/
+    }
+
+    .button_ujarak.button_round_s::before {
+        border-radius: 2px;
+    }
+
+    .button_ujarak.button_inverted::before {
+        background: #7986CB;
+    }
+
+    .button_ujarak,
+    .button_ujarak::before {
+        /*-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);*/
+    }
+
+        /*.button_ujarak:hover {
+            color: #fff;
+            border-color: #37474f;
+        }*/
+
+        .button_ujarak.button_inverted:hover {
+            color: #37474F;
+            border-color: #fff;
+        }
+
+        .button_ujarak:hover::before {
+            /*opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            -webkit-backface-visibility: hidden;
+            -webkit-transform-style: preserve-3d;*/
+        }
+
+
+
+/* tables */
+.component {
+    line-height: 1.5em;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+/*    max-width: 1000px;*/
+    overflow: auto;
+    background: #fff;
+    -webkit-overflow-scrolling: touch; /* ios5+ */
+    /*overflow: hidden;*/
+    /*overflow-x: hidden;
+    overflow-y: scroll;*/
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 0.6s, opacity 0.6s;
+    transition: transform 0.6s, opacity 0.6s;
+    -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+    .component > div {
+        z-index: 1;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: none;
+        -o-text-size-adjust: none;
+        text-size-adjust: none;
+    }
+
+/*TODO: 后面在进行处理*/
+.container_open .intro .component {
+    /*-webkit-transform: translate3d(0, 30%, 0);
+	transform: translate3d(0, 30%, 0);*/
+    top: 50%;
+}
+
+.component .filler {
+    font-family: Arial, sans-serif;
+    color: #d3d3d3;
+}
+
+
+table{
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table th, table td{
+ /*   display: inline-block;*/
+    padding: 5px;
+    white-space: nowrap;/* 不换行 */
+    overflow: hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow: ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一 起使用。*/
+    /*box-sizing: border-box;*/
+}
+
+table th{
+   /*BUG： 2015-04-13 hongbo_liang 修改表格样式*/
+   background-color: #31bc86;
+   font-weight: bold;
+   color: #fff;
+
+}
+
+td[data-editable="true"] {
+    background: #ffffe0;
+}
+
+tbody tr:nth-child(2n-1) {
+    background-color: #f5f5f5;
+    transition: all .125s ease-in-out;
+}
+
+ tbody tr:hover, tbody tr .selected {
+    background-color: lightblue;
+ }
+ 
+ .intro table th{
+    background-color: #fff;
+    font-weight: bold;
+    color: gray;
+ }
+
+ .intro table th,.intro table td {
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.intro table thead tr > th:first-child,.intro table tbody tr > th:first-child {
+    padding: 0;
+    margin: 0;
+    height: 29px;
+}
+
+.intro table tr td, .intro table tr th{
+    /*display: block;*/
+    display:  table-cell;
+    float: left;
+    height: 19px;
+}
+
+
+
+ .fixed_headers {
+ /*    table-layout: fixed;
+     border-collapse: collapse;*/
+ }
+
+
+     .fixed_headers thead tr {
+         display: block;
+         position: relative;
+     }
+
+     .fixed_headers tbody {
+         display: block;
+         overflow: auto;
+         width: 100%;
+     }
+

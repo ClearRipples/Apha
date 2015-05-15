@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title data-lang-text="title">二维码应用</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no,address=no"/>
+	<meta name="x5-fullscreen" content="true"/>
+	<link rel="apple-touch-icon" rel="apple-touch-icon-precomposed" href="img/ios_logo.png" />
+
+	<link href="../widgets/css/ui-date.css" rel="stylesheet" >
+	<link href="../widgets/css/ui-searchbar.css" rel="stylesheet" >
+	<style>
+	/* add*/
+	#page_wrapper, #category_page, #launcher_page, #setting_page {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		overflow: hidden;
+	}
+
+	#category_list, #set_main {
+		overflow: hidden;
+		position: absolute;
+		top: 55px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
+
+	.con {
+		font-size: 14px;
+		letter-spacing: 1px;
+	}
+	.sys_info {
+		position:absolute;
+		width:100%;
+		line-height: 20px;
+		text-align:center;
+		bottom: 50px;
+	}     
+	</style>
+</head>
+<body>
+	<div id="list_page" >
+		<header class="header2" id="list_header">
+			<input id="scan_input" type="text" />
+			<h1 class="header_title title" id="channel_title"></h1>
+			<i class="update_line_03"></i>
+			<a class="read_ico_home header_btn_home" href="javascript:;" id="list_back_to_launcher_btn" data-lang-text="home">主页</a>
+			<i class="update_line"></i>
+			<a class="read_ico_add_03 header_btn_add" style="display: none;" id="header_btn_add" href="javascript:;" data-lang-text="add">添加</a>
+			<a class="read_ico_refresh update_txt" href="javascript:;" id="update_latest_btn" data-lang-text="update">更新<i class="update_num" id="update_num" style="display: none;">0</i></a>
+		</header>
+		<article class="main3" id="list_wrapper">  
+			<button onclick="openBirthDate()">birth date</button>
+			<p id="result">results</p>
+		</article>
+
+		<footer class="foot_pager none" id="pager_con">
+			<ul class="base_bar"></ul>
+			<div class="slide_ctrl" id="slide_ctrl">
+				<i class="slide_tag" id="slide_tag" style="display: none; font-weight: bold;">1</i>
+				<i class="slide_dot"></i>
+			</div>
+			<div class="page_info">
+				<span class="current_number" id="current_pager_info" style="display: inline-block; width: 100%;"></span>
+			</div>
+		</footer>
+	</div>
+
+	<script src="../widgets/datepicker.js"></script>
+	<script type="text/javascript">
+
+	function openBirthDate() {
+	var now = new Date();
+	var days = { };
+	var years = { };
+	var months = { 1: 'Gen', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov', 12: 'Dec' };
+	
+	for( var i = 1; i < 32; i += 1 ) {
+		days[i] = i;
+	}
+
+	for( i = now.getFullYear()-100; i < now.getFullYear()+1; i += 1 ) {
+		years[i] = i;
+	}
+
+	SpinningWheel.addSlot(years, 'right', 1999);
+	SpinningWheel.addSlot(months, '', 4);
+	SpinningWheel.addSlot(days, 'right', 12);
+	
+	SpinningWheel.setCancelAction(cancel);
+	SpinningWheel.setDoneAction(done);
+	
+	SpinningWheel.open();
+}
+
+	function done() {
+		var results = SpinningWheel.getSelectedValues();
+		document.getElementById('result').innerHTML = 'values: ' + results.values.join(' ') + '<br />keys: ' + results.keys.join(', ');
+	}
+
+	function cancel() {
+		document.getElementById('result').innerHTML = 'cancelled!';
+	}
+	</script>
+</body>
+<html>
